@@ -3,13 +3,13 @@ import { RegisterPage } from "./pages/registerPage";
 import { HomePage } from "./pages/homePage";
 
 test("Launch URL and page load", async ({page}) => {
-    page.goto("https://parabank.parasoft.com/parabank/index.htm");
+    await page.goto("https://parabank.parasoft.com/parabank/index.htm");
     await expect(page).toHaveTitle("ParaBank | Welcome | Online Banking");
 })
 
 test("Launch URL and validate page loads", async ({page})=>{
     const homepage = new HomePage(page);
-    await page.goto("htttps://https://parabank.parasoft.com/parabank");
+    await page.goto("https://https://parabank.parasoft.com/parabank");
     expect(homepage.title).toBeVisible();
 })
 

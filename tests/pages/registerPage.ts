@@ -20,19 +20,19 @@ export class RegisterPage {
     constructor(page: Page) {
         this.page = page;
         this.signUpFormHeading = page.getByRole('heading', { name : 'Signing up  is easy!' });
-        this.firstNameInput = page.getByRole('textbox', { name: 'customer.firstName' });
-        this.lastNameInput = page.getByRole('textbox', {name: 'customer.lastName' });
-        this.addressInput = page.getByRole('textbox', {name: 'customer.address.street' });
-        this.cityInput = page.getByRole('textbox', {name: 'customer.address.city' });
-        this.stateInput = page.getByRole('textbox', {name: 'customer.address.state' });
-        this.zipCodeInput = page.getByRole('textbox', {name: 'customer.address.zipCode' });
-        this.phoneNumberInput = page.getByRole('textbox', {name: 'customer.phoneNumber' });
-        this.ssnInput = page.getByRole('textbox', {name: 'customer.ssn' });
-        this.usernameInput = page.getByRole('textbox', {name: 'customer.username' });
-        this.passwordInput = page.getByRole('textbox', {name: 'customer.password' });
-        this.confirmPasswordInput = page.getByRole('textbox', {name: 'repeatedPassword' });
+        this.firstNameInput = page.locator("//input[@id='customer.firstName']");
+        this.lastNameInput = page.locator("//input[@id='customer.lastName']");
+        this.addressInput = page.locator("//input[@id='customer.address.street']");
+        this.cityInput = page.locator("//input[@id='customer.address.city']");
+        this.stateInput = page.locator("//input[@id='customer.address.state']");
+        this.zipCodeInput = page.locator("//input[@id='customer.address.zipCode']");
+        this.phoneNumberInput = page.locator("//input[@id='customer.phoneNumber']");
+        this.ssnInput = page.locator("//input[@id='customer.ssn']");
+        this.usernameInput = page.locator("//input[@id='customer.username']");
+        this.passwordInput = page.locator("//input[@id='customer.password']");
+        this.confirmPasswordInput = page.locator("//input[@id='customer.confirmPassword']");
         this.registerButton = page.getByRole('button', { name: 'Register' });
-        this.successMessage = page.getByRole('heading', {name:'Welcome '});
+        this.successMessage = page.getByRole('paragraph', {name: 'Your account was created successfully. You are now logged in.'});
     }
 
     async fillRegistrationForm( firstName: string, lastName:string, address: string, city: string, state: string, zipCode: string, phoneNumber: string, ssn: string, username: string, password: string, confirmPassword: string) {
