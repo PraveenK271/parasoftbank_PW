@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 
 export class RegisterPage {
     readonly page: Page;
@@ -34,4 +34,23 @@ export class RegisterPage {
         this.registerButton = page.getByRole('button', { name: 'Register' });
         this.successMessage = page.getByRole('heading', {name:'Welcome '});
     }
+
+    async fillRegistrationForm( firstName: string, lastName:string, address: string, city: string, state: string, zipCode: string, phoneNumber: string, ssn: string, username: string, password: string, confirmPassword: string) {
+        await this.firstNameInput.fill(firstName);
+        await this.lastNameInput.fill(lastName);
+        await this.addressInput.fill(address);
+        await this.cityInput.fill(city);
+        await this.stateInput.fill(state);
+        await this.zipCodeInput.fill(zipCode);
+        await this.phoneNumberInput.fill(phoneNumber);
+        await this.ssnInput.fill(ssn);
+        await this.usernameInput.fill(username);
+        await this.passwordInput.fill(password);
+        await this.confirmPasswordInput.fill(confirmPassword);
+        await this.registerButton.click();
+    }
+
+    async verifyRegistrationSuccess() {
+        expect(this.successMessage).toBeVisible();
+    } 
 }
